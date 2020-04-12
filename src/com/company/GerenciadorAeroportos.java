@@ -18,6 +18,9 @@ public class GerenciadorAeroportos {
         return instance;
     }
     //listarTodos
+    public ArrayList<Aeroporto> listarTodas() {
+        return new ArrayList<>(aeroportos);
+    }
     //buscarData
 
     public void adicionar(String umCodigo, String umNome, Geo umLoc) {
@@ -28,7 +31,7 @@ public class GerenciadorAeroportos {
     public String toString() {
         String aux = "\n Gerenciador de Aeroportos\n";
         for(Aeroporto a : aeroportos){
-            aux = aux + a.toString() + "\n";
+            aux = aux + a.toString();
         }
         return aux;
     }
