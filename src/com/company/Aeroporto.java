@@ -10,6 +10,17 @@ public class Aeroporto {
         nome = umNome;
         loc = umLoc;
     }
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Geo getLocal() {
+        return loc;
+    }
 
     @Override
     public String toString() {
@@ -17,4 +28,6 @@ public class Aeroporto {
                 "Nome do Aeroporto: " + nome +
                 "Localização: " + loc;
     }
+
+
 }

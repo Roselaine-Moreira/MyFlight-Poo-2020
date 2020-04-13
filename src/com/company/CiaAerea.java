@@ -9,6 +9,14 @@ public class CiaAerea {
         nome = umNome;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
     @Override
     public String toString() {
         return "Nome da Cia Aérea: " + nome + " " +

@@ -15,10 +15,10 @@ public class Main {
 
         //add Aeronaves
         GerenciadorAeronaves aeronave = GerenciadorAeronaves.getGerenciadorAeronaves();
-        aeronave.adicionar("733","Boeing 737-300",140);
-        aeronave.adicionar("73G","Boeing 737-700",126);
-        aeronave.adicionar("380","Airbus Industrie A380",644);
-        aeronave.adicionar("764","Boeing 767-400",304);
+        aeronave.adicionar("733", "Boeing 737-300", 140);
+        aeronave.adicionar("73G", "Boeing 737-700", 126);
+        aeronave.adicionar("380", "Airbus Industrie A380", 644);
+        aeronave.adicionar("764", "Boeing 767-400", 304);
 
         System.out.println(aeronave.toString());
 
@@ -30,13 +30,14 @@ public class Main {
         // MIA	Miami International Apt	25.7933	-80.2906
 
         //add Rotas
-        GerenciadorRotas rota = GerenciadorRotas.getGerenciadorRotas();
+       // GerenciadorRotas rota = GerenciadorRotas.getGerenciadorRotas();
+       // rota.adicionar("G3","GRU","POA",738);
+       // rota.adicionar("G3", "POA", "GRU", 738);
+       // rota.adicionar("TP", "MIA", "LIS", 332);
+       // rota.adicionar("JJ", "GRU", "GIG", 320);
 
-        //Cia Aérea	Origem	Destino	Aeronave
-        // G3	GRU	POA	738
-        // G3	POA	GRU	738
-        // TP	MIA	LIS	332
-        // JJ	GRU	GIG	320
+      //  System.out.println(rota.toString());
+
 
         //add Vôos
         GerenciadorVoos voo = GerenciadorVoos.getGerenciadorVoos();

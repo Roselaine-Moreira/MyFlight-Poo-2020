@@ -22,11 +22,18 @@ public class GerenciadorVoos {
         return instance;
     }
 
-    public void adicionar(LocalDateTime umaDataHora, Duration umaDuracao, Rota umaRota, Voo.Status umStatus) {
-        voos.add(new Voo(umaDataHora, umaDuracao, umaRota, umStatus));
+    //public void adicionar(LocalDateTime umaDataHora, Duration umaDuracao, Rota umaRota, Voo.Status umStatus) {
+    //    voos.add(new Voo(umaDataHora, umaDuracao, umaRota, umStatus));
+    //}
+
+    public void adicionar (Voo voo){
+        voos.add (voo);
     }
 
-    //listarTodos
+    public ArrayList<Voo> listarTodos(){
+        return voos;
+    }
+
     //buscarData
 
     public String toString() {
@@ -38,3 +45,4 @@ public class GerenciadorVoos {
     }
 
 }
+

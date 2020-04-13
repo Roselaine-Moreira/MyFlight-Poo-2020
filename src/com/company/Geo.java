@@ -9,6 +9,14 @@ public class Geo {
         longitude = umaLongitude;
     }
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
     @Override
     public String toString() {
         return "Latitude: " + latitude +

@@ -19,16 +19,22 @@ public class GerenciadorRotas {
     }
 
     public void adicionar(CiaAerea umaCia, Aeroporto umaOrigem, Aeroporto umDestino, Aeronave umaAeronave) {
-        rotas.add(new Rota(umaCia, umaOrigem, umDestino, umaAeronave));
+       rotas.add(new Rota(umaCia,umaOrigem,umDestino, umaAeronave));
+      }
+
+    public void adicionar(CiaAerea cia){
+        this.adicionar(cia);
     }
+
     //listarTodos
     //buscarData
 
     public String toString() {
         String aux = "\n Gerenciador de Rotas \n";
-        for(Rota r : rotas){
+        for (Rota r : rotas) {
             aux = aux + r.toString() + "\n";
         }
         return aux;
     }
+
 }
