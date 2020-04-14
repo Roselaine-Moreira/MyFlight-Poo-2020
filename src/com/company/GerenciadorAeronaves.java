@@ -17,12 +17,15 @@ public class GerenciadorAeronaves {
         }
         return instance;
     }
-    //listarTodos
-    //buscarData
-    public void adicionar(String umCodigo, String umaDescricao, int umaCapacidade){
-        aeronaves.add(new Aeronave(umCodigo, umaDescricao, umaCapacidade));
+
+    public void adicionar(Aeronave aeronave){
+        aeronaves.add(aeronave);
     }
 
+    public ArrayList<Aeronave> listarTodos(){
+        return aeronaves;
+    }
+    //buscarData
     @Override
     public String toString() {
       String aux = "\nGerenciador de Aeronaves\n";

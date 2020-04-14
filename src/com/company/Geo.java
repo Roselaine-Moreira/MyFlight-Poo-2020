@@ -19,7 +19,7 @@ public class Geo {
 
     @Override
     public String toString() {
-        return "Latitude: " + latitude +
+        return "Latitude: " + latitude + ", " +
                 "Longitude: " + longitude;
     }
 }

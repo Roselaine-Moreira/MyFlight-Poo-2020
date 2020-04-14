@@ -5,24 +5,17 @@ import java.time.LocalDateTime;
 import java.time.Month;
 
 public class Voo {
-    public enum Status {CONFIRMADO, ATRASADO, CANCELADO}
-
-    ;
+    public enum Status {CONFIRMADO, ATRASADO, CANCELADO};
 
     private LocalDateTime datahora;
     private Duration duracao;
     private Rota rota;
     private Status status;
 
-    // public Voo(LocalDateTime umaDataHora, Duration umaDuracao, Rota umaRota, Status umStatus) {
-    //   datahora = umaDataHora;
-    // duracao = umaDuracao;
-    //rota = umaRota;
-    //status = umStatus;
-    //}
-
-    public Voo(LocalDateTime umaDatahora) {
-        datahora = umaDatahora;
+    public Voo(LocalDateTime umaDataHora, Duration umaDuracao, Rota umaRota, Status status) {
+        datahora = umaDataHora;
+        duracao = umaDuracao;
+        rota = umaRota;
         this.status = Status.CONFIRMADO; // default é confirmado
     }
 
@@ -55,9 +48,9 @@ public class Voo {
 
     @Override
     public String toString() {
-        return "Data e Hora: " + datahora +
-                "Duração: " + duracao +
-                "Rota: " + rota +
+        return "Data e Hora: " + datahora + ", " +
+                "Duração: " + duracao + ", " +
+                "Rota: " + rota + ", " +
                 "Status: " + status;
     }
 }

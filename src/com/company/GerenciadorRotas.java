@@ -18,15 +18,15 @@ public class GerenciadorRotas {
         return instance;
     }
 
-    public void adicionar(CiaAerea umaCia, Aeroporto umaOrigem, Aeroporto umDestino, Aeronave umaAeronave) {
-       rotas.add(new Rota(umaCia,umaOrigem,umDestino, umaAeronave));
-      }
+    public void adicionar(Rota rota) {
+        rotas.add(rota);
 
-    public void adicionar(CiaAerea cia){
-        this.adicionar(cia);
     }
 
-    //listarTodos
+    public ArrayList<Rota> listarTodas() {
+        return rotas;//lista de rotas
+    }
+
     //buscarData
 
     public String toString() {

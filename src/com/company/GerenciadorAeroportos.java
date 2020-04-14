@@ -17,15 +17,15 @@ public class GerenciadorAeroportos {
         }
         return instance;
     }
-    //listarTodos
-    public ArrayList<Aeroporto> listarTodas() {
-        return new ArrayList<>(aeroportos);
-    }
-    //buscarData
+
 
     public void adicionar(String umCodigo, String umNome, Geo umLoc) {
         aeroportos.add(new Aeroporto(umCodigo, umNome, umLoc));
     }
+    public ArrayList<Aeroporto> listarTodas() {
+        return aeroportos;
+    }
+    //buscarData
 
     @Override
     public String toString() {

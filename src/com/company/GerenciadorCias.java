@@ -18,13 +18,17 @@ public class GerenciadorCias {
         return instance;
     }
 
+    public void adicionar( CiaAerea cia){
+        empresas.add(cia);
+    }
+
     public ArrayList<CiaAerea> listarTodas() {
         return new ArrayList<>(empresas);
     }
 
-    public void adicionar(String umCodigo, String umNome) {
-        empresas.add(new CiaAerea(umCodigo, umNome));
-    }
+//    public void adicionar(String umCodigo, String umNome) {
+//        empresas.add(new CiaAerea(umCodigo, umNome));
+//    }
 
     @Override
     public String toString() {

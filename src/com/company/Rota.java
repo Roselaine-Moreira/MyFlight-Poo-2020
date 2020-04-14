@@ -13,6 +13,7 @@ public class Rota {
         aeronave = umaAeronave;
     }
 
+
     public CiaAerea getCia() {
         return cia;
     }
@@ -31,9 +32,9 @@ public class Rota {
 
     @Override
     public String toString() {
-        return "Companhia Aérea: " + cia.getCodigo() +
-                "Origem: " + origem.getCodigo() +
-                "Destino: " + destino.getCodigo() +
+        return "Companhia Aérea: " + cia.getCodigo() + " " +
+                "Origem: " + origem.getCodigo() + " " +
+                "Destino: " + destino.getCodigo() + " " +
                 "Aeronave: " + aeronave.getCodigo();
     }
 
