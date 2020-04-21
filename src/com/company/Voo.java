@@ -1,56 +1,59 @@
 package com.company;
 
-import java.time.Duration;
+mport java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.Month;
+import java.time.format.DateTimeFormatter;
 
 public class Voo {
-    public enum Status {CONFIRMADO, ATRASADO, CANCELADO};
+	
+	public enum Status { CONFIRMADO, ATRASADO, CANCELADO }
+	
+	private LocalDateTime datahora;
+	private Duration duracao;
+	private Rota rota;
+	private Status status;
+	private DateTimeFormatter formatador;
 
-    private LocalDateTime datahora;
-    private Duration duracao;
-    private Rota rota;
-    private Status status;
+	public Voo(Rota rota, LocalDateTime datahora, Duration duracao) {
+		this.rota = rota;
+		this.datahora = datahora;
+		this.duracao = duracao;
+		this.status = Status.CONFIRMADO; // default é confirmado
+        // Para formatar LocalDateTime de uma forma inteligível
+        this.formatador = DateTimeFormatter.ofPattern("dd/MMM/yyyy HH:mm");
+	}
 
-    public Voo(LocalDateTime umaDataHora, Duration umaDuracao, Rota umaRota, Status status) {
-        datahora = umaDataHora;
-        duracao = umaDuracao;
-        rota = umaRota;
-        this.status = Status.CONFIRMADO; // default é confirmado
+	public Voo(Rota rota, Duration duracao) {
+
+	    this(rota,
+          LocalDateTime.of(2018,4,3,22,00,0),
+          duracao);
+//	    this(rota, LocalDateTime.now(), duracao);
     }
-
-    public Voo(Rota umaRota, LocalDateTime umaDataHora, Duration umaDuracao) {
-        rota = umaRota;
-        datahora = umaDataHora;
-        duracao = umaDuracao;
-        this.status = Status.CONFIRMADO; // default é confirmado
-    }
-
-    public Rota getRota() {
-        return rota;
-    }
-
-    public LocalDateTime getDatahora() {
-        return datahora;
-    }
-
-    public Duration getDuracao() {
-        return duracao;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status novo) {
-        this.status = novo;
-    }
+	
+	public Rota getRota() {
+		return rota;
+	}
+	
+	public LocalDateTime getDatahora() {
+		return datahora;
+	}
+	
+	public Duration getDuracao() {
+		return duracao;
+	}
+	
+	public Status getStatus() {
+		return status;
+	}
+	
+	public void setStatus(Status novo) {
+		this.status = novo;
+	}
 
     @Override
     public String toString() {
-        return "Data e Hora: " + datahora + ", " +
-                "Duração: " + duracao + ", " +
-                "Rota: " + rota + ", " +
-                "Status: " + status;
+        return rota + " : " + formatador.format(datahora) + " [" +  duracao + "] - "
+                + status;
     }
 }
