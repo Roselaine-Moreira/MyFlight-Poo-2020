@@ -1,11 +1,11 @@
 package com.company;
 
-mport java.time.Duration;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Voo {
-	
+
 	public enum Status { CONFIRMADO, ATRASADO, CANCELADO }
 	
 	private LocalDateTime datahora;

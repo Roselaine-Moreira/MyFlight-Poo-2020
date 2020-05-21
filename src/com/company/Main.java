@@ -49,10 +49,14 @@ public class Main {
         Aeroporto lisboa = new Aeroporto("LIS", "Lisbon", geo3);
         Aeroporto mia = new Aeroporto("MIA", "Miami International Apt", geo4);
 
+        //calculando a distância,entre os aeroportos de Porto Alegre e Guarulhos
+        double mostraDistancia = Geo.distancia(geo1,geo2);
+
         System.out.println(poa.toString());
         System.out.println(sp.toString());
         System.out.println(lisboa.toString());
         System.out.println(mia.toString());
+        System.out.println("Distância entre POA e GRU: " + mostraDistancia);
         System.out.println("\n");
 
         System.out.println("------------------Cadastro de Rotas----------------------------------");
@@ -82,9 +86,13 @@ public class Main {
 
         LocalDateTime datahoraVoo3 = LocalDateTime.of(2020, 07, 25, 12, 0);
         Duration duracaoVoo3 = Duration.ofMinutes(120); // 2 horas
-        Voo voo1 = new Voo(datahoraVoo1 ,duracaoVoo1,rota1, Voo.Status.CONFIRMADO);
-        Voo voo2 = new Voo(datahoraVoo2 ,duracaoVoo2,rota2, Voo.Status.ATRASADO);
-        Voo voo3 = new Voo(datahoraVoo3 ,duracaoVoo3,rota3, Voo.Status.CANCELADO);
+
+
+        Voo voo1 = new Voo(rota1, datahoraVoo1,duracaoVoo1);
+        Voo voo2 = new Voo(rota2,datahoraVoo2 ,duracaoVoo2);
+        voo2.setStatus(Voo.Status.ATRASADO);
+        Voo voo3 = new Voo(rota3,datahoraVoo3 ,duracaoVoo3);
+        voo3.setStatus(Voo.Status.CANCELADO);
 
         System.out.println(voo1.toString());
         System.out.println(voo2.toString());
