@@ -18,6 +18,7 @@ public class Main {
         System.out.println(cia2.toString());
         System.out.println(cia3.toString());
         System.out.println(cia4.toString());
+        System.out.println("Total de empresas: "+ CiaAerea.getTotalCias());
         System.out.println("\n");
 
 
