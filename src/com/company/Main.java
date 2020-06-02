@@ -34,6 +34,7 @@ public class Main {
         System.out.println(nave2.toString());
         System.out.println(nave3.toString());
         System.out.println(nave4.toString());
+        System.out.println("Total de Aeronaves: " + Aeronave.getTotalAeronaves());
         System.out.println("\n");
 
         System.out.println("------------------Cadastro de Aeroportos----------------------------------");
