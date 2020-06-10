@@ -1,67 +1,47 @@
 package com.company;
 
 public class Geo {
-    private double latitude;
-    private double longitude;
+	private double latitude;
+	private double longitude;
+	
+	public Geo(double latitude, double longitude) {
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
 
-    public Geo(double umaLatitude, double umaLongitude) {
-        latitude = umaLatitude;
-        longitude = umaLongitude;
+	public double distancia(Geo p2) {
+	    return distancia(this, p2);
     }
 
-    public double getLatitude() {
-        return latitude;
-    }
+	public static double distancia(Geo p1, Geo p2) {
+	    double lat1 = Math.toRadians(p1.latitude);
+        double lat2 = Math.toRadians(p2.latitude);
+        double lon1 = Math.toRadians(p1.longitude);
+        double lon2 = Math.toRadians(p2.longitude);
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
+        double diflat = (lat1 - lat2)/2;
+        diflat = Math.sin(diflat) * Math.sin(diflat);
 
-    public double getLongitude() {
-        return longitude;
-    }
+        double diflon = (lon1 - lon2)/2;
+        diflon = Math.sin(diflon) * Math.sin(diflon);
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
+        double aux = diflat + diflon * Math.cos(lat1)*Math.cos(lat2);
+        aux = Math.sqrt(aux);
 
-    //Método que calcula a distância entre dois pontos usando a fórmula de haversine
-    public static double distancia(Geo pontoA, Geo pontoB){
+        return 2*6371 * Math.asin(aux);
+	}
+	
+	public double getLatitude() {
+		return latitude;
+	}
+	
+	public double getLongitude() {
+		return longitude;
+	}
 
-        int raioTerra = 6371;
+	@Override
+	public String toString() {
+		return latitude + ", " + longitude;
+	}
 
-        double latitude1 = pontoA.getLatitude();
-        double latitude2 = pontoB.getLatitude();
-
-        double longitude1 = pontoA.getLongitude();
-        double longitude2 = pontoB.getLongitude();
-
-        double latDistancia = toRad(latitude2-latitude1);
-        double lonDistancia = toRad(longitude2-longitude1);
-
-        double a = Math.sin(latDistancia / 2) * Math.sin(latDistancia / 2) +
-                Math.cos(toRad(latitude1)) * Math.cos(toRad(latitude2)) *
-                        Math.sin(lonDistancia / 2) * Math.sin(lonDistancia / 2);
-
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        double distancia= raioTerra * c;
-
-        return distancia;
-    }
-
-    public double distanciaAtual(Geo ponto){
-        Geo atual = new Geo(latitude, longitude);
-        return distancia(atual, ponto);
-    }
-
-    public static double toRad(double valor){
-        return valor * Math.PI / 180;
-    }
-
-    @Override
-    public String toString() {
-        return "Latitude: " + latitude + ", " +
-                "Longitude: " + longitude;
-    }
 }
-
