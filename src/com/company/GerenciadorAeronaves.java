@@ -2,36 +2,54 @@ package com.company;
 
 import java.util.ArrayList;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 public class GerenciadorAeronaves {
-    private ArrayList<Aeronave> aeronaves;
 
-    private GerenciadorAeronaves(){
-        aeronaves = new ArrayList<>();
+    public GerenciadorAeronaves() {
+        this.avioes = new ArrayList<>();
     }
 
-    private static GerenciadorAeronaves instance;
-
-    public static GerenciadorAeronaves getGerenciadorAeronaves(){
-        if(instance == null){
-            instance = new GerenciadorAeronaves();
-        }
-        return instance;
+    public void adicionar(Aeronave aviao) {
+        avioes.add(aviao);
     }
 
-    public void adicionar(Aeronave aeronave){
-        aeronaves.add(aeronave);
+    public ArrayList<Aeronave> listarTodas() {
+        return new ArrayList<>(avioes);
     }
 
-    public ArrayList<Aeronave> listarTodos(){
-        return aeronaves;
+    public Aeronave buscarCodigo(String codigo) {
+        for(Aeronave a: avioes)
+            if(a.getCodigo().equals(codigo))
+                return a;
+        return null;
     }
-    //buscarData
-    @Override
-    public String toString() {
-      String aux = "\nGerenciador de Aeronaves\n";
-      for(Aeronave ae : aeronaves){
-          aux = aux + ae.toString() + "\n";
-      }
-      return aux;
+
+    public void ordenarDescricao() {
+        // Usando Comparable<Aeronave> em Aeronave
+        //Collections.sort(avioes);
+
+        // Usando expressão lambda
+        //avioes.sort( (Aeronave a1, Aeronave a2) ->
+        //    a1.getDescricao().compareTo(a2.getDescricao()));
+
+        // Mesma coisa, usando método static da interface Comparator:
+        //avioes.sort(Comparator.comparing(a -> a.getDescricao()));
+
+        // Invertendo o critério de comparação com reversed():
+        avioes.sort(Comparator.comparing(Aeronave::getDescricao).reversed());
+    }
+
+    public void ordenarCodigoDescricao() {
+       // Ordenando pelo código e desempatando pela descrição
+       avioes.sort(Comparator.comparing(Aeronave::getCodigo).
+               thenComparing(Aeronave::getDescricao));
+    }
+
+    public void ordenarCodigo() {
+        avioes.sort( (Aeronave a1, Aeronave a2) ->
+            a1.getCodigo().compareTo(a2.getCodigo()));
     }
 }
